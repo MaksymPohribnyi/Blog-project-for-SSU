@@ -5,10 +5,21 @@ spring:
     name: "Sample-blog-website"
   datasource:
     url: jdbc:postgresql://localhost:5432/BlogSSU 
-    username: postgres
-    password: 1234
+    username: 
+    password: 
     driver-class-name: org.postgresql.Driver
   jpa:
     hibernate:
-      ddl-auto: create
+      ddl-auto: update
     show-sql: true
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: 
+    password: 
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
