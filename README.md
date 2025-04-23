@@ -11,3 +11,7 @@ Sample project of blog web site for Sumy state university
 - PostgreSQL
 - HTML, CSS
 - Thymeleaf
+
+## 🚀 Running
+Clone the repository ➡️ Build the project with Gradle ➡️ Use `SampleBlogWebsiteApplication.java` or `./gradlew bootRun` for run the project
+
