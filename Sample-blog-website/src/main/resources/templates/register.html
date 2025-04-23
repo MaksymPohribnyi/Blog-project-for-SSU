@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Реєстрація</title>
+<link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+	<div class="form-container">
+		<h2>Реєстрація</h2>
+
+		<div th:if="${errorMessage}" class="error-message">
+			<p th:text="${errorMessage}"></p>
+		</div>
+
+		<div th:if="${successMessage}" class="success-message">
+			<p th:text="${successMessage}"></p>
+		</div>
+
+		<form action="/blog-SSU/auth/register" method="post">
+			<label>Ім'я</label> <input type="text" name="username" required>
+			<label>Електронна пошта</label> <input type="email" name="email"
+				required> <label>Пароль</label> <input type="password"
+				name="password" required>
+			<button type="submit">Зареєструватися</button>
+			<p>
+				<a th:href="@{/blog-SSU}">Головна</a>
+			</p>
+		</form>
+	</div>
+</body>
+</html>

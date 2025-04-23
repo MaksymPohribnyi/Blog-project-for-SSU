@@ -1,0 +1,39 @@
+<!-- home.html -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Home</title>
+<link rel="stylesheet" th:href="@{/css/Styles.css}">
+</head>
+<body>
+	<header>
+		<nav>
+			<a href="/blog-SSU">Головна</a>
+			<a href="/blog-SSU/auth/login" th:if="${!isAuthenticated}">Вхід</a> 
+			<a href="/blog-SSU/auth/register" th:if="${!isAuthenticated}">Реєстрація</a>
+			<a href="/blog-SSU/profile" th:if="${isAuthenticated}">Мій профіль</a> 
+			<a href="/blog-SSU/auth/logout" th:if="${isAuthenticated}">Вихід</a>
+		</nav>
+	</header>
+	<main>
+		<h1>Ласкаво просимо на блог!</h1>
+		<div class="create-post-wrapper">
+			<a href="/blog-SSU/posts" th:if="${isAuthenticated}" class="btn">Додати новий пост</a>
+		</div>
+		<div class="post-container">
+			<div class="post" th:each="post : ${posts}">
+				<h3 th:text="${post.title}"></h3>
+				<p class="post-description" th:text="${post.description}"></p>
+				<div class="post-body">
+					<p th:text="${post.content.length() > 500 ? post.content.substring(0, 500) + '...' : post.content}"></p>
+				</div>
+				<a th:if="${post.content.length() > 500}"
+					th:href="@{/blog-SSU/posts/{id}(id=${post.id})}" class="read-more">Читати далі</a> 
+				<p><a th:href="@{/blog-SSU/posts/{id}(id=${post.id})}"
+					th:if="${isAuthenticated}" class="link">Додати коментар</a></p>
+			</div>
+		</div>
+	</main>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Вхід</title>
+<link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+	<div class="form-container">
+		<h2>Вхід</h2>
+
+		<div th:if="${errorMessage}" class="error-message">
+			<p th:text="${errorMessage}"></p>
+		</div>
+
+		<div th:if="${logoutMessage}" class="success-message">
+			<p th:text="${logoutMessage}"></p>
+		</div>
+
+		<div th:if="${successRegistration}" class="success-message">
+			<p th:text="${successRegistration}"></p>
+		</div>
+
+		<div th:if="${param.resetSuccess}" class="success-message">
+			<p>Ваш пароль успішно змінено. Ви можете увійти з новим паролем.</p>
+		</div>
+
+		<form action="/blog-SSU/auth/login" method="post">
+			<label>Електронна пошта</label> <input type="email" name="username"
+				required> <label>Пароль</label> <input type="password"
+				name="password" required>
+			<button type="submit">Увійти</button>
+		</form>
+		<p>
+			<a href="/blog-SSU/password/forgot">Забули пароль?</a>
+		</p>
+		<p>
+			<a href="/blog-SSU/auth/register">Реєстрація</a>
+		</p>
+		<p>
+			<a href="/blog-SSU">Головна</a>
+		</p>
+	</div>
+</body>
+</html>

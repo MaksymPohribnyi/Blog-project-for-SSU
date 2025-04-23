@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Створити пост</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body>
+	
+	<header>
+		<nav>
+			<a href="/blog-SSU">Головна</a>
+			<a href="/blog-SSU/profile" th:if="${isAuthenticated}">Мій профіль</a> 
+			<a href="/blog-SSU/auth/logout" th:if="${isAuthenticated}">Вихід</a>
+		</nav>
+	</header>
+
+	<div class="create-post-container">
+	    <h1>Створення нового поста</h1>
+		    <form th:action="@{/blog-SSU/posts}" method="post" th:object="${post}">
+		        
+		        <label for="title">Заголовок:</label>
+		        <input type="text" id="title" name="title" th:field="*{title}" required>
+		
+		        <label for="description">Опис:</label>
+		        <input type="text" id="description" name="description" th:field="*{description}" required>
+		
+		        <label for="content">Тіло поста:</label>
+		        <textarea id="content" name="content" th:field="*{content}" required></textarea>
+		
+		        <button type="submit" class="btn">Опублікувати</button>
+		        
+		    </form>
+	</div>
+</body>
+</html>

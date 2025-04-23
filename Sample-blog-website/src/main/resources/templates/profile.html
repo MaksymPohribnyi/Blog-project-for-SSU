@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мій профіль</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <div class="profile-container">
+        <h1 class="profile-header">Мій профіль</h1>
+
+        <div th:if="${param.success}" class="success-message">
+            <p>Дані оновлено успішно!</p>
+        </div>
+
+        <div class="profile-info">
+            <div class="profile-card">
+                <h3>Персональна інформація</h3>
+                <p><strong>Ім'я:</strong> <span th:text="${user.username}"></span></p>
+                <p><strong>Email:</strong> <span th:text="${user.email}"></span></p>
+                <p><strong>Стать:</strong> <span
+						th:text="${user.gender == 'MALE' ? 'Чоловіча' : user.gender == 'FEMALE' ? 'Жіноча' : '-'}"></span>
+				</p>
+            </div>
+
+            <div class="profile-card">
+                <h3>Оновлення інформації</h3>
+                <form class="profile-form" th:action="@{/blog-SSU/profile}" method="post">
+                   	<label for="firsname">Ім'я:</label>
+                    <input type="text" id="firsname" name="firstName" th:value="${user.firstName}">
+                    <label for="lastname">Прізвище:</label>
+					<input type="text" id="lastname" name="lastName" th:value="${user.lastName}">
+					<label for="age">Вік:</label>
+					<input type="text" id="age" name="age" th:value="${user.age}">
+					<label for="gender">Стать:</label>
+                    <select id="gender" name="gender">
+                        <option value="MALE" th:selected="${user.gender == 'MALE'}">Чоловіча</option>
+                        <option value="FEMALE" th:selected="${user.gender == 'FEMALE'}">Жіноча</option>
+                    </select>
+                    <button type="submit">Оновити</button>
+                </form>
+            </div>
+        </div>
+        <a href="/blog-SSU" class="back-btn">← Назад</a>
+    </div>
+</body>
+</html>

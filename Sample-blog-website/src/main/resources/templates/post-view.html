@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${post.title}">Пост</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+
+	<header>
+		<nav>
+			<a href="/blog-SSU">Головна</a>
+			<a href="/blog-SSU/profile" th:if="${isAuthenticated}">Мій профіль</a> 
+			<a href="/blog-SSU/auth/logout" th:if="${isAuthenticated}">Вихід</a>
+		</nav>
+	</header>
+
+    <div class="post-view-container">
+        
+		<h1 class="post-title" th:text="${post.title}"></h1>
+		<div class="post-description" th:text="${post.description}"></div>
+		<div class="post-content" th:text="${post.content}"></div>
+
+		<h3>Коментарі:</h3>
+    	<div class="comments-block" th:if ="${!comments.isEmpty()}">
+        	<div th:each="comment : ${comments}" class="comment">
+	            <p><strong th:text="${comment.user.username}"></strong>: <span th:text="${comment.content}"></span></p>
+	            <span class="comment-date" th:text="${#temporals.format(comment.createdAt, 'dd.MM.yyyy HH:mm')}"></span>
+        	</div>
+    	</div>
+	    <div th:if="${isAuthenticated}">
+			<form th:action="@{/blog-SSU/comments/{id}(id=${post.id})}" method="post" class="comment-form">
+				<textarea name="content" placeholder="Залишити коментар..." required></textarea>
+				<button type="submit">Коментувати</button>
+			</form>
+		</div>
+        <a href="/blog-SSU" class="back-btn">← Назад</a>
+    </div>
+</body>
+</html>
