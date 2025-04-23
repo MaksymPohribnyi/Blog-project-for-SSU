@@ -15,3 +15,5 @@ Sample project of blog web site for Sumy state university
 ## 🚀 Running
 Clone the repository ➡️ Build the project with Gradle ➡️ Use `SampleBlogWebsiteApplication.java` or `./gradlew bootRun` for run the project
 
+Then open [http://localhost:8787/blog-SSU](http://localhost:8787/blog-SSU) url in browser
+
