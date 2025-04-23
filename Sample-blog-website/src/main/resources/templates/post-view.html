@@ -2,16 +2,16 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title th:text="${post.title}">Пост</title>
+    <title th:text="${post.title}">Post</title>
     <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
 
 	<header>
 		<nav>
-			<a href="/blog-SSU">Головна</a>
-			<a href="/blog-SSU/profile" th:if="${isAuthenticated}">Мій профіль</a> 
-			<a href="/blog-SSU/auth/logout" th:if="${isAuthenticated}">Вихід</a>
+			<a href="/blog-SSU">Home</a>
+			<a href="/blog-SSU/profile" th:if="${isAuthenticated}">Profile</a> 
+			<a href="/blog-SSU/auth/logout" th:if="${isAuthenticated}">Sign out</a>
 		</nav>
 	</header>
 
@@ -21,7 +21,7 @@
 		<div class="post-description" th:text="${post.description}"></div>
 		<div class="post-content" th:text="${post.content}"></div>
 
-		<h3>Коментарі:</h3>
+		<h3>Comments:</h3>
     	<div class="comments-block" th:if ="${!comments.isEmpty()}">
         	<div th:each="comment : ${comments}" class="comment">
 	            <p><strong th:text="${comment.user.username}"></strong>: <span th:text="${comment.content}"></span></p>
@@ -30,11 +30,11 @@
     	</div>
 	    <div th:if="${isAuthenticated}">
 			<form th:action="@{/blog-SSU/comments/{id}(id=${post.id})}" method="post" class="comment-form">
-				<textarea name="content" placeholder="Залишити коментар..." required></textarea>
-				<button type="submit">Коментувати</button>
+				<textarea name="content" placeholder="Leave a few words about this post..." required></textarea>
+				<button type="submit">Leave a Comment</button>
 			</form>
 		</div>
-        <a href="/blog-SSU" class="back-btn">← Назад</a>
+        <a href="/blog-SSU" class="back-btn">← Back</a>
     </div>
 </body>
 </html>

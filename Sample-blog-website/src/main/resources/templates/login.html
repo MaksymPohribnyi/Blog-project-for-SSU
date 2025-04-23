@@ -3,12 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Вхід</title>
+<title>Sign in</title>
 <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
 	<div class="form-container">
-		<h2>Вхід</h2>
+		<h2>Sign in</h2>
 
 		<div th:if="${errorMessage}" class="error-message">
 			<p th:text="${errorMessage}"></p>
@@ -23,23 +23,23 @@
 		</div>
 
 		<div th:if="${param.resetSuccess}" class="success-message">
-			<p>Ваш пароль успішно змінено. Ви можете увійти з новим паролем.</p>
+			<p>Your password has been successfully changed. You can now sign in with your new password.</p>
 		</div>
 
 		<form action="/blog-SSU/auth/login" method="post">
-			<label>Електронна пошта</label> <input type="email" name="username"
-				required> <label>Пароль</label> <input type="password"
+			<label>Email</label> <input type="email" name="username"
+				required> <label>Password</label> <input type="password"
 				name="password" required>
-			<button type="submit">Увійти</button>
+			<button type="submit">Login</button>
 		</form>
 		<p>
-			<a href="/blog-SSU/password/forgot">Забули пароль?</a>
+			<a href="/blog-SSU/password/forgot">Forgot password?</a>
 		</p>
 		<p>
-			<a href="/blog-SSU/auth/register">Реєстрація</a>
+			<a href="/blog-SSU/auth/register">Sign up</a>
 		</p>
 		<p>
-			<a href="/blog-SSU">Головна</a>
+			<a href="/blog-SSU">Home</a>
 		</p>
 	</div>
 </body>

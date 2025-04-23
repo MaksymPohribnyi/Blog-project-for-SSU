@@ -3,12 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Реєстрація</title>
+<title>Sign up</title>
 <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
 	<div class="form-container">
-		<h2>Реєстрація</h2>
+		<h2>Sign up</h2>
 
 		<div th:if="${errorMessage}" class="error-message">
 			<p th:text="${errorMessage}"></p>
@@ -19,13 +19,13 @@
 		</div>
 
 		<form action="/blog-SSU/auth/register" method="post">
-			<label>Ім'я</label> <input type="text" name="username" required>
-			<label>Електронна пошта</label> <input type="email" name="email"
-				required> <label>Пароль</label> <input type="password"
+			<label>Name</label> <input type="text" name="username" required>
+			<label>Email</label> <input type="email" name="email"
+				required> <label>Password</label> <input type="password"
 				name="password" required>
-			<button type="submit">Зареєструватися</button>
+			<button type="submit">Sign up</button>
 			<p>
-				<a th:href="@{/blog-SSU}">Головна</a>
+				<a th:href="@{/blog-SSU}">Home</a>
 			</p>
 		</form>
 	</div>

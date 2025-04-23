@@ -2,33 +2,33 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Створити пост</title>
+    <title>Create post</title>
     <link rel="stylesheet" th:href="@{/css/styles.css}">
 </head>
 <body>
 	
 	<header>
 		<nav>
-			<a href="/blog-SSU">Головна</a>
-			<a href="/blog-SSU/profile" th:if="${isAuthenticated}">Мій профіль</a> 
-			<a href="/blog-SSU/auth/logout" th:if="${isAuthenticated}">Вихід</a>
+			<a href="/blog-SSU">Home</a>
+			<a href="/blog-SSU/profile" th:if="${isAuthenticated}">Profile</a> 
+			<a href="/blog-SSU/auth/logout" th:if="${isAuthenticated}">Sign out</a>
 		</nav>
 	</header>
 
 	<div class="create-post-container">
-	    <h1>Створення нового поста</h1>
+	    <h1>Create new post</h1>
 		    <form th:action="@{/blog-SSU/posts}" method="post" th:object="${post}">
 		        
-		        <label for="title">Заголовок:</label>
+		        <label for="title">Title:</label>
 		        <input type="text" id="title" name="title" th:field="*{title}" required>
 		
-		        <label for="description">Опис:</label>
+		        <label for="description">Description:</label>
 		        <input type="text" id="description" name="description" th:field="*{description}" required>
 		
-		        <label for="content">Тіло поста:</label>
+		        <label for="content">Content:</label>
 		        <textarea id="content" name="content" th:field="*{content}" required></textarea>
 		
-		        <button type="submit" class="btn">Опублікувати</button>
+		        <button type="submit" class="btn">Publish</button>
 		        
 		    </form>
 	</div>

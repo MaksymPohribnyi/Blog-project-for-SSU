@@ -3,46 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Мій профіль</title>
+    <title>Profile</title>
     <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
     <div class="profile-container">
-        <h1 class="profile-header">Мій профіль</h1>
+        <h1 class="profile-header">Your profile</h1>
 
         <div th:if="${param.success}" class="success-message">
-            <p>Дані оновлено успішно!</p>
+            <p>Data updated successfully!</p>
         </div>
 
         <div class="profile-info">
             <div class="profile-card">
-                <h3>Персональна інформація</h3>
-                <p><strong>Ім'я:</strong> <span th:text="${user.username}"></span></p>
+                <h3>Personal info</h3>
+                <p><strong>Name:</strong> <span th:text="${user.username}"></span></p>
                 <p><strong>Email:</strong> <span th:text="${user.email}"></span></p>
-                <p><strong>Стать:</strong> <span
+                <p><strong>Gender:</strong> <span
 						th:text="${user.gender == 'MALE' ? 'Чоловіча' : user.gender == 'FEMALE' ? 'Жіноча' : '-'}"></span>
 				</p>
             </div>
 
             <div class="profile-card">
-                <h3>Оновлення інформації</h3>
+                <h3>Udpdate info</h3>
                 <form class="profile-form" th:action="@{/blog-SSU/profile}" method="post">
-                   	<label for="firsname">Ім'я:</label>
+                   	<label for="firsname">First name:</label>
                     <input type="text" id="firsname" name="firstName" th:value="${user.firstName}">
-                    <label for="lastname">Прізвище:</label>
+                    <label for="lastname">Last name:</label>
 					<input type="text" id="lastname" name="lastName" th:value="${user.lastName}">
-					<label for="age">Вік:</label>
+					<label for="age">Age:</label>
 					<input type="text" id="age" name="age" th:value="${user.age}">
-					<label for="gender">Стать:</label>
+					<label for="gender">Gender:</label>
                     <select id="gender" name="gender">
-                        <option value="MALE" th:selected="${user.gender == 'MALE'}">Чоловіча</option>
-                        <option value="FEMALE" th:selected="${user.gender == 'FEMALE'}">Жіноча</option>
+                        <option value="MALE" th:selected="${user.gender == 'MALE'}">Male</option>
+                        <option value="FEMALE" th:selected="${user.gender == 'FEMALE'}">Female</option>
                     </select>
-                    <button type="submit">Оновити</button>
+                    <button type="submit">Update</button>
                 </form>
             </div>
         </div>
-        <a href="/blog-SSU" class="back-btn">← Назад</a>
+        <a href="/blog-SSU" class="back-btn">← Back</a>
     </div>
 </body>
 </html>
