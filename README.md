@@ -13,7 +13,11 @@ Sample project of blog web site for Sumy state university
 - Thymeleaf
 
 ## 🚀 Running
-Clone the repository ➡️ Build the project with Gradle ➡️ Use `SampleBlogWebsiteApplication.java` or `./gradlew bootRun` for run the project
+
+🔨 For build project with Gradle Wrapper use `./gradlew build`, then find your jar in folder `build/libs/SampleBlogWebsiteApplication.jar`
+
+
+➡️ Clone the repository ➡️ Build the project with Gradle ➡️ Use `SampleBlogWebsiteApplication.java` or `./gradlew bootRun` for run the project
 
 Then open [http://localhost:8787/blog-SSU](http://localhost:8787/blog-SSU) url in browser
 
