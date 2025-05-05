@@ -31,7 +31,7 @@ class PostRepositoryTests {
 	public void given_PostObjectwhenSavePost_thenPostIsCreated() {
 
 		// given
-		Post postToSave = DataUtils.getPostTransient();
+		Post postToSave = DataUtils.getNewspaperPostTransient();
 		// when
 		postRepository.save(postToSave);
 		// then
@@ -45,7 +45,7 @@ class PostRepositoryTests {
 	public void given_PostObjectwhenUpdatePost_thenPostIsUpdated() {
 
 		// given
-		Post postToSave = DataUtils.getPostTransient();
+		Post postToSave = DataUtils.getNewspaperPostTransient();
 		postRepository.save(postToSave);
 
 		// when
@@ -64,7 +64,7 @@ class PostRepositoryTests {
 	public void given_PostIdwhenFindPostById_thenPostIsReturned() {
 
 		// given
-		Post postToSave = DataUtils.getPostTransient();
+		Post postToSave = DataUtils.getNewspaperPostTransient();
 		postRepository.save(postToSave);
 
 		// when

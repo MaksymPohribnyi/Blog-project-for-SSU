@@ -8,15 +8,6 @@ import com.pohribnyi.blogSSU.model.User;
 
 public class DataUtils {
 
-	public static Post getPostTransient() {
-		return Post.builder()
-				.title("new test post")
-				.description("new test post")
-				.content("This is content for new test post")
-				.author(null)
-				.build();
-	}
-	
 	public static Post getWalpaperPostTransient() {
 		return Post.builder()
 				.title("Walpaper")
@@ -29,6 +20,28 @@ public class DataUtils {
 	
 	public static Post getNewspaperPostTransient() {
 		return Post.builder()
+				.title("Newspaper")
+				.description("Newspaper")
+				.content("This is content for Newspaper post")
+				.author(null)
+				.createdAt(LocalDateTime.of(2025, 5, 4, 16, 54))
+				.build();
+	}
+	
+	public static Post getWalpaperPostPersisted() {
+		return Post.builder()
+				.id(1L)
+				.title("Walpaper")
+				.description("Walpaper")
+				.content("This is content for Walpaper post")
+				.author(null)
+				.createdAt(LocalDateTime.of(2025, 5, 5, 13, 27))
+				.build();
+	}
+	
+	public static Post getNewspaperPostPersisted() {
+		return Post.builder()
+				.id(2L)
 				.title("Newspaper")
 				.description("Newspaper")
 				.content("This is content for Newspaper post")

@@ -98,7 +98,7 @@ public class CommentRepositoryTests {
 	public void given_SeveralCommentswhenFindAllOrderByCreatedAt_thenListOfCommentsIsReturned() {
 
 		// given
-		Post newPost = postRepository.save(DataUtils.getPostTransient());
+		Post newPost = postRepository.save(DataUtils.getNewspaperPostTransient());
 
 		Comment latestComment = DataUtils.getLatestCommentTransient();
 		Comment initialComment = DataUtils.getInitialCommentTransient();
