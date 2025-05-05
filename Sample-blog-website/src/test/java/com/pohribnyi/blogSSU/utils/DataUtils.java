@@ -2,6 +2,7 @@ package com.pohribnyi.blogSSU.utils;
 
 import java.time.LocalDateTime;
 
+
 import com.pohribnyi.blogSSU.model.Comment;
 import com.pohribnyi.blogSSU.model.Post;
 import com.pohribnyi.blogSSU.model.User;
@@ -76,6 +77,24 @@ public class DataUtils {
 				.build();
 	}
 	
+	public static Comment getLatestCommentPersisted() {
+		return Comment.builder()
+				.content("my test latest comment")
+				.user(getUserPersisted())
+				.post(Post.builder().id(1L).build())
+				.createdAt(LocalDateTime.of(2025, 5, 4, 16, 54))
+				.build();
+	}
+	
+	public static Comment getInitialCommentPersisted() {
+		return Comment.builder()
+				.content("my test initial comment")
+				.user(getUserPersisted())
+				.post(Post.builder().id(1L).build())
+				.createdAt(LocalDateTime.of(2025, 5, 5, 13, 27))
+				.build();
+	}
+	
 	public static User getUserTransient() {
 		return User.builder()
 				.username("TestUser")
@@ -89,4 +108,17 @@ public class DataUtils {
 				.build();
 	}
 	
+	public static User getUserPersisted() {
+		return User.builder()
+				.id(1l)
+				.username("TestUser")
+				.firstName("Test")
+				.lastName("User")
+				.email("Test_Email@mail.com")
+				.password("*******")
+				.resetToken("TokenUID1234567890")
+				.gender("MALE")
+				.age((byte) 33)
+				.build();
+	}
 }
