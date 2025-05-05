@@ -10,10 +10,12 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
+import lombok.Builder;
 import lombok.Data;
 
 @Entity
 @Data
+@Builder
 @Table(name = "comment")
 public class Comment {
 	@Id
@@ -32,6 +34,7 @@ public class Comment {
 	private Post post;
 
 	@Column(name = "created_at", updatable = false)
+	@Builder.Default
 	private LocalDateTime createdAt = LocalDateTime.now();
 
 }

@@ -40,10 +40,11 @@ public class CommentController {
 		Post post = postService.getPostById(postId);
 
 		if (user != null && post != null && !content.isBlank()) {
-			Comment comment = new Comment();
-			comment.setContent(content);
-			comment.setUser(user);
-			comment.setPost(post);
+			Comment comment = Comment.builder()
+					.content(content)
+					.user(user)
+					.post(post)
+					.build();
 			commentService.saveComment(comment);
 		}
 

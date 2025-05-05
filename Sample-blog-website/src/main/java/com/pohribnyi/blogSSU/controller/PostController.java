@@ -41,7 +41,7 @@ public class PostController {
 		boolean isAuthenticated = auth != null && auth.isAuthenticated()
 				&& !auth.getPrincipal().equals("anonymousUser");
 		model.addAttribute("isAuthenticated", isAuthenticated);
-		model.addAttribute("post", new Post());
+		model.addAttribute("post", Post.builder().build());
 		return "create-post";
 	}
 

@@ -8,8 +8,6 @@ import com.pohribnyi.blogSSU.model.Post;
 
 public interface PostRepository extends JpaRepository<Post, Long> {
 
-	List<Post> findByAuthorId(Long authorId);
-	
 	List<Post> findAllByOrderByCreatedAtDesc();
 
 }
