@@ -74,7 +74,7 @@ public class PostServiceTests {
 		BDDMockito.given(postRepository.findById(anyLong())).willThrow(PostNotFoundException.class);
 		// when
 		// then
-		assertThrows(PostNotFoundException.class, () -> postServiceUnderTest.getPostById(1L));
+		assertThrows(PostNotFoundException.class, () -> postServiceUnderTest.getPostById(anyLong()));
 		verify(postRepository, atLeastOnce()).findById(anyLong());
 
 	}
