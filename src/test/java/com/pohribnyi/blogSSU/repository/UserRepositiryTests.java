@@ -107,7 +107,7 @@ public class UserRepositiryTests {
 
 		// given
 		// when
-		User obtainedUser = userRepository.findByEmail(anyString()).orElse(null);
+		User obtainedUser = userRepository.findByEmail("someEmail@example.com").orElse(null);
 
 		// then
 		assertThat(obtainedUser).isNull();
@@ -136,7 +136,7 @@ public class UserRepositiryTests {
 
 		// given
 		// when
-		User obtainedUser = userRepository.findByUsername(anyString()).orElse(null);
+		User obtainedUser = userRepository.findByUsername("someUsername").orElse(null);
 
 		// then
 		assertThat(obtainedUser).isNull();
@@ -165,7 +165,7 @@ public class UserRepositiryTests {
 
 		// given
 		// when
-		User obtainedUser = userRepository.findByResetToken(anyString()).orElse(null);
+		User obtainedUser = userRepository.findByResetToken("someResetToken").orElse(null);
 
 		// then
 		assertThat(obtainedUser).isNull();

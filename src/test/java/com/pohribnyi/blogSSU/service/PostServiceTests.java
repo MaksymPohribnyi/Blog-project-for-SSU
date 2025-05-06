@@ -75,7 +75,7 @@ public class PostServiceTests {
 		// when
 		// then
 		assertThrows(PostNotFoundException.class, () -> postServiceUnderTest.getPostById(1L));
-		verify(postRepository, atLeastOnce()).findById(anyLong());
+		verify(postRepository, atLeastOnce()).findById(1L);
 
 	}
 
