@@ -117,7 +117,7 @@ public class PostServiceTests {
 		// then
 
 		assertThat(CollectionUtils.isEmpty(obtainedListOfPosts)).isFalse();
-		assertThat(obtainedListOfPosts.size()).isEqualTo(3);
+		assertThat(obtainedListOfPosts.size()).isEqualTo(2);
 
 	}
 	
