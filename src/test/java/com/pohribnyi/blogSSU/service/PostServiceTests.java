@@ -71,10 +71,10 @@ public class PostServiceTests {
 	public void given_IncorrectPostId_whenGetPostById_thenExceptionIsThrown() {
 
 		// given
-		BDDMockito.given(postRepository.findById(anyLong())).willThrow(PostNotFoundException.class);
+		BDDMockito.given(postRepository.findById(anyLong())).willReturn(Optional.empty());
 		// when
 		// then
-		assertThrows(PostNotFoundException.class, () -> postServiceUnderTest.getPostById(anyLong()));
+		assertThrows(PostNotFoundException.class, () -> postServiceUnderTest.getPostById(1L));
 		verify(postRepository, atLeastOnce()).findById(anyLong());
 
 	}
