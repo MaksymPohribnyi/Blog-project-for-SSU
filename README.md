@@ -14,7 +14,7 @@ Sample project of blog web site for Sumy state university
 
 ## 🔨 Build
 
-**На Linux / MacOS:**
+**Linux / MacOS:**
 ```
 ./gradlew bootRun
 ```
