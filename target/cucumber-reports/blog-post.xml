@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Cucumber" time="9.044" tests="2" skipped="0" failures="0" errors="0">
+<testcase classname="Add Blog/Post" name="Successful landing on Create new post" time="4.44">
+<system-out><![CDATA[
+Given I am a logged in user.................................................passed
+When I click on "Add a new post" link on the "Home" page....................passed
+Then I should land on the "Add new post" page...............................passed
+]]></system-out>
+</testcase>
+<testcase classname="Add Blog/Post" name="Successful creation of a Blog/Post - Example #1.1" time="4.183">
+<system-out><![CDATA[
+Given I am a logged in user.................................................passed
+When I click on "Add a new post" link on the "Home" page....................passed
+And I fill in "title" with "some title".....................................passed
+And I fill in "description" with "some short description"...................passed
+And I fill in "content" with "some body"....................................passed
+And I click on the "Publish" button.........................................passed
+Then I should land on the "Home" page.......................................passed
+And I should see the new blog listing on the Homepage.......................passed
+]]></system-out>
+</testcase>
+</testsuite>
